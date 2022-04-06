@@ -35,13 +35,13 @@ export class BasketService {
             if (this.authService.UserData) {
                 this.basket.buyerId = this.authService.UserData.sub;
                 if (this.configurationService.isReady) {
-                    this.basketUrl = this.configurationService.serverSettings.purchaseUrl;
+                    this.basketUrl = this.configurationService.serverSettings.basketUrl;
                     this.purchaseUrl = this.configurationService.serverSettings.purchaseUrl;
                     this.loadData();
                 }
                 else {
                     this.configurationService.settingsLoaded$.subscribe(x => {
-                        this.basketUrl = this.configurationService.serverSettings.purchaseUrl;
+                        this.basketUrl = this.configurationService.serverSettings.basketUrl;
                         this.purchaseUrl = this.configurationService.serverSettings.purchaseUrl;
                         this.loadData();
                     });
